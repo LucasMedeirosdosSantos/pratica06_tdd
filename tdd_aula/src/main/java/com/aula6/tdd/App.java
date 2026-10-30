@@ -2,11 +2,32 @@ package com.aula6.tdd;
 
 
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
 
-class ValidadorSenhaTest {
+public class App {
 
-    private final ValidadorSenha validador = new ValidadorSenha();
+    public static ResultadoValidacao validarSenha(String senha) {
 
+        return new ResultadoValidacao(false, new ArrayList<>());
+    }
+
+    public static class ResultadoValidacao {
+
+        private boolean valida;
+        private List<String> erros;
+
+        public ResultadoValidacao(boolean valida, List<String> erros) {
+            this.valida = valida;
+            this.erros = erros;
+        }
+
+        public boolean isValida() {
+            return valida;
+        }
+
+        public List<String> getErros() {
+            return erros;
+        }
+    }
 }
